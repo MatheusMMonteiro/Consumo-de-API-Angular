@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6" id="img-bg"></div>
+
+    <div class="col-md-6 mt-5 mb-5">
+      <div class="col-md-10">
+        <h1 class="text-center">Cadastro</h1>
+
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nome"
+            id="nome"
+            placeholder="Seu nome"
+          />
+        </div>
+        <div class="form-group">
+          <label for="usuario">Usuario</label>
+          <input
+            type="text"
+            class="form-control"
+            name="usuario"
+            id="usuario"
+            placeholder="Seu usuário"
+          />
+        </div>
+        <div class="form-group">
+          <label for="foto">Link da foto</label>
+          <input
+            type="text"
+            class="form-control"
+            name="foto"
+            id="foto"
+            placeholder="Link da foto"
+          />
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input
+            type="text"
+            class="form-control"
+            name="senha"
+            id="senha"
+            placeholder="Sua senha"
+          />
+        </div>
+        <div class="form-group">
+          <label for="confirmSenha">Confirmar Senha</label>
+          <input
+            type="text"
+            class="form-control"
+            name="confirmSenha"
+            id="confirSenha"
+            placeholder="Confirme sua senha"
+          />
+        </div>
+        <div class="form-group">
+          <label for="tipo">Tipo de Usuário</label>
+          <select class="form-control" name="tipo" id="tipo">
+            <option>Selecione o tipo de usuário</option>
+            <option value="normal">Normal</option>
+            <option value="adm">Administrador</option>
+          </select>
+        </div>
+        <div class="d-flex justify-content-around">
+          <button type="submit" class="btn btn-danger">Cancelar</button>
+          <button type="submit" class="btn btn-success">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
