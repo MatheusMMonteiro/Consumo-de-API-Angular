@@ -8,7 +8,8 @@
 
         <div class="form-group">
           <label for="nome">Nome</label>
-          <input [(ngModel)]='user.nome'
+          <input
+            [(ngModel)]="user.nome"
             type="text"
             class="form-control"
             name="nome"
@@ -18,7 +19,8 @@
         </div>
         <div class="form-group">
           <label for="usuario">Usuario</label>
-          <input [(ngModel)]='user.usuario'
+          <input
+            [(ngModel)]="user.usuario"
             type="text"
             class="form-control"
             name="usuario"
@@ -28,7 +30,8 @@
         </div>
         <div class="form-group">
           <label for="foto">Link da foto</label>
-          <input [(ngModel)]='user.foto'
+          <input
+            [(ngModel)]="user.foto"
             type="text"
             class="form-control"
             name="foto"
@@ -38,7 +41,8 @@
         </div>
         <div class="form-group">
           <label for="senha">Senha</label>
-          <input (input)='confirmSenha($event)'
+          <input
+            (input)="confirmSenha($event)"
             type="text"
             class="form-control"
             name="senha"
@@ -48,7 +52,8 @@
         </div>
         <div class="form-group">
           <label for="confirmSenha">Confirmar Senha</label>
-          <input [(ngModel)]='user.senha'
+          <input
+            [(ngModel)]="user.senha"
             type="text"
             class="form-control"
             name="confirmSenha"
@@ -58,15 +63,24 @@
         </div>
         <div class="form-group">
           <label for="tipo">Tipo de Usuário</label>
-          <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
+          <select
+            class="form-control"
+            name="tipo"
+            id="tipo"
+            (change)="tipoUser($event)"
+          >
             <option>Selecione o tipo de usuário</option>
             <option value="normal">Normal</option>
             <option value="adm">Administrador</option>
           </select>
         </div>
         <div class="d-flex justify-content-around">
-          <button type="submit" class="btn btn-danger" routerLink='/entrar'>Cancelar</button>
-          <button type="submit" class="btn btn-success" (click)='cadastrar()'>Cadastrar</button>
+          <button type="submit" class="btn btn-danger" routerLink="/entrar">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-success" (click)="cadastrar()">
+            Cadastrar
+          </button>
         </div>
       </div>
     </div>
