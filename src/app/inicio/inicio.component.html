@@ -13,7 +13,7 @@
       <div class="row d-flex justify-content-center mt-3 mb-5">
         <div class="col-md-6">
           <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">Nova Postagem</button>
-          <a href="#postagens" class="btn btn-outline-light">Ver Postagens</a>
+          <a href="#postagenms" class="btn btn-outline-light">Ver Postagens</a>
         </div>
 
 
@@ -29,7 +29,7 @@
 
 </div>
 
-<div class="container mb-5 mt-5" id="postagens">
+<div class="container mb-5 mt-5" id="postagenms">
 
   <nav>
     <div class="nav nav-tabs d-flex justify-content-center active text-secondary font-weight-bold" id="nav-tab" role="tablist">
@@ -43,7 +43,18 @@
   <div class="tab-content" id="nav-tabContent">
 
     <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
-      Todas as postagens
+      
+      <div class="card-columns">
+        <div class="card border-secondary mb-3" style="max-width: 18rem;" *ngFor="let item of listaPostagens">
+          <div class="card-header">Postagens</div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title">{{item.titulo}}</h5>
+            <p class="card-text">{{item.texto}}</p>
+            <p class="card-text text-end">{{item.usuario.nome}}</p>
+
+          </div>
+      </div>
+
     </div>
 
     <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">

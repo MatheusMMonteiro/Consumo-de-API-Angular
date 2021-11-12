@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserLogin } from '../model/UserLogin';
@@ -23,6 +23,10 @@ export class AuthService {
 
   }
 
+  token = {
+    headers: new HttpHeaders().set('Authorization', environment.token)
+  }
+
   logado(){
     let ok = false
 
@@ -31,5 +35,10 @@ export class AuthService {
     }
 
     return ok
+  }
+  refreshToken(){
+    this.token = {
+      headers: new HttpHeaders().set('Authorization' , environment.token)
+    }
   }
 }

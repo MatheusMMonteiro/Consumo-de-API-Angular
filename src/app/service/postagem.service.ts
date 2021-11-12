@@ -22,4 +22,9 @@ export class PostagemService {
   postPostagem(postagem: Postagem): Observable<Postagem>{
     return this.http.post<Postagem>('https://projetinhoblogpessoal.herokuapp.com/postagens', postagem, this.token)
   }
+  refreshToken(){
+    this.token = {
+      headers: new HttpHeaders().set('Authorization' , environment.token)
+    }
+  }
 }
