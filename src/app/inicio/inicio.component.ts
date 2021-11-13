@@ -62,9 +62,16 @@ export class InicioComponent implements OnInit {
     } )
 
   }
+
+  
+  findByIdUser(){
+    this.auth.getByIdUser(this.idUser).subscribe((resp: User)=>{
+      this.user = resp
+    })
+  }
   publicar(){
     this.tema.id = this.idTema
-    this.postagem.tema = this.tema
+    this.postagem.temaRelacionado = this.tema
 
     this.user.id = this.idUser
     this.postagem.usuario = this.user
@@ -73,6 +80,7 @@ export class InicioComponent implements OnInit {
       this.postagem = resp
       alert('Postagem realizada com sucesso')
       this.postagem = new Postagem()
+      this.getAllPostagens()
       
 
     })

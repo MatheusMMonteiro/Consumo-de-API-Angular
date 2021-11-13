@@ -35,12 +35,12 @@
     <div class="nav nav-tabs d-flex justify-content-center active text-secondary font-weight-bold" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
 
-      <a class="nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+      <a (click)="findByIdUser()" class="nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
 
       <a class="nav-link text-secondary font-weight-bold" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagem por tema</a>
     </div>
   </nav>
-  <div class="tab-content" id="nav-tabContent">
+  <div class="tab-content mt-5" id="nav-tabContent">
 
     <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
       
@@ -48,9 +48,11 @@
         <div class="card border-secondary mb-3" style="max-width: 18rem;" *ngFor="let item of listaPostagens">
           <div class="card-header">Postagens</div>
           <div class="card-body text-secondary">
-            <h5 class="card-title">{{item.titulo}}</h5>
-            <p class="card-text">{{item.texto}}</p>
+            <h5 class="card-title m-0">{{item.titulo}}</h5>
+            <small class="text-muted">Tema: {{item.temaRelacionado.descricao}}</small>
+            <p class="card-text mt-3">{{item.texto}}</p>
             <p class="card-text text-end">{{item.usuario.nome}}</p>
+            <p>{{item.date | date: 'dd/MM/yyyyy'}} às {{item.date | date: 'HH:mm'}}</p>
 
           </div>
       </div>
@@ -58,10 +60,34 @@
     </div>
 
     <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-      Minhas POstagens
+      <div class="card-columns">
+        <div class="card border-secondary mb-3" style="max-width: 18rem;" *ngFor="let item of user.postagens">
+          <div class="card-header">Postagens</div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title m-0">{{item.titulo}}</h5>
+            <small class="text-muted">Tema: {{item.temaRelacionado.descricao}}</small>
+            <p class="card-text mt-3">{{item.texto}}</p>
+            
+            <p>{{item.date | date: 'dd/MM/yyyyy'}} às {{item.date | date: 'HH:mm'}}</p>
+
+          </div>
+      </div>
     </div>
 
-    <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">Postagens por tema</div>
+    <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
+      
+      <div class="card-columns" *ngFor="let tema of listaTemas">
+      <div class="card border-secondary mb-3" style="max-width: 18rem;" *ngFor="let item of listaPostagens">
+        <div class="card-header">Postagens</div>
+        <div class="card-body text-secondary">
+          <h5 class="card-title m-0">{{item.titulo}}</h5>
+          
+          <p class="card-text mt-3">{{item.texto}}</p>
+          <p class="card-text text-end">{{item.usuario.nome}}</p>
+          <p>{{item.date | date: 'dd/MM/yyyyy'}} às {{item.date | date: 'HH:mm'}}</p>
+
+        </div>
+    </div></div>
   </div>
 </div>
 

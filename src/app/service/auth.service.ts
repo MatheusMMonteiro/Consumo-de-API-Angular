@@ -12,6 +12,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient
+
   ) { }
 
   entrar(userLogin: UserLogin): Observable<UserLogin>{
@@ -22,6 +23,11 @@ export class AuthService {
     return this.http.post<User>('https://projetinhoblogpessoal.herokuapp.com/usuarios/cadastrar', user)
 
   }
+
+  getByIdUser(id: number) : Observable<User>{
+    return this.http.get<User>(`https://projetinhoblogpessoal.herokuapp.com/usuarios/${id}`)
+  }
+
 
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token)
